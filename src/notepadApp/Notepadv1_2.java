@@ -42,6 +42,7 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -75,6 +76,8 @@ import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.undo.UndoManager;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+
 class Notepadv1_2 {
 
     public static void main(String[] args) {
@@ -89,7 +92,7 @@ class Notepadv1_2 {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                 | UnsupportedLookAndFeelException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Ups");
         }
         SwingUtilities.invokeLater(MainFrame312::new);
     }
@@ -233,7 +236,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                     File file = (File) list.get(0);
                     ta.read(new FileReader(file), null);
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    LOGGER.log(Level.INFO,"Ups");
                 }
             }
         });
@@ -378,7 +381,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                 String s = (String) data.getTransferData(DataFlavor.stringFlavor);
                 ta.replaceRange(s, ta.getSelectionStart(), ta.getSelectionEnd());
             } catch (UnsupportedFlavorException | IOException e1) {
-                e1.printStackTrace();
+                LOGGER.log(Level.INFO,"Ups");
             }
         } else if ((src == delete) || (src == delete1)) {
             ta.replaceRange("", ta.getSelectionStart(), ta.getSelectionEnd());
@@ -464,13 +467,13 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                 URL url = System.class.getResource("/NotepadRes/help.html");
                 tp.setPage(url);
             } catch (Exception ee) {
-                ee.printStackTrace();
+                LOGGER.log(Level.INFO,"Ups");
             }
         } else if (src == print) {
             try {
                 ta.print();
             } catch (PrinterException e1) {
-                e1.printStackTrace();
+                LOGGER.log(Level.INFO,"Ups");
             }
         } else if (src == goTo) {
             do {
@@ -494,7 +497,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                         }
                     }
                 } catch (Exception e2) {
-                    e2.printStackTrace();
+                    LOGGER.log(Level.INFO,"Ups");
                 }
             } while (true);
         } else if (src == find) {
@@ -707,7 +710,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             JOptionPane.showMessageDialog(MainFrame312.this, "Error opening file : " + fc.getSelectedFile().getName(),
                     "Error", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Ups");
         }
     }
 
@@ -724,7 +727,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             bw.close();
             fileM = false;
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            LOGGER.log(Level.INFO,"Ups");
         }
     }
 
@@ -753,7 +757,9 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             bw.close();
             fileM = false;
         } catch (IOException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+//            log.error("Ops!", e);
+            LOGGER.log(Level.INFO,"Ups");
         }
     }
 
@@ -854,7 +860,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             ta.setFont(new Font(fontC, styleC, sizeC));
             fontL.setFont(new Font(fontC, styleC, sizeC));
         } catch (NumberFormatException nfe) {
-            nfe.printStackTrace();
+            LOGGER.log(Level.INFO,"Ups");
         }
     }
 
@@ -889,7 +895,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                     break;
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                LOGGER.log(Level.INFO,"Ups");
             }
         }
         statusL.setText(s);
