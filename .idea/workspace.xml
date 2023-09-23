@@ -4,14 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f2cb6d7-a2fc-4513-87f7-4c50020de183" name="Changes" comment="Tue 05:09:2023 - 05:12:15 PM" />
+    <list default="true" id="1f2cb6d7-a2fc-4513-87f7-4c50020de183" name="Changes" comment="Tue 05:09:2023 - 05:12:15 PM">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/Notepadv1_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/Notepadv1_2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/SingletonF1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/SingletonF1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/notepadApp/Notepadv1_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/notepadApp/Notepadv1_2.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KotlinCodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -24,29 +44,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "ignore.virus.scanning.warn.message": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Application.Notepadv1_2 (4)">
+}</component>
+  <component name="RunManager" selected="Application.Notepadv1_2 (1)">
     <configuration name="Notepadv1_2 (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="notepadApp.Notepadv1_2" />
-      <module name="Notepadv1.x" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="notepadApp.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Notepadv1_2 (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="notepadApp.Notepadv1_2" />
       <module name="Notepadv1.x" />
       <extension name="coverage">
@@ -85,6 +93,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Notepadv1_2 (5)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="notepadApp.Notepadv1_2" />
+      <module name="Notepadv1.x" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="notepadApp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Notepadv1_2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="notepadApp.Notepadv1_2" />
       <module name="Notepadv1.x" />
@@ -100,11 +121,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Notepadv1_2 (4)" />
-        <item itemvalue="Application.Notepadv1_2 (3)" />
-        <item itemvalue="Application.Notepadv1_2 (2)" />
         <item itemvalue="Application.Notepadv1_2 (1)" />
         <item itemvalue="Application.Notepadv1_2" />
+        <item itemvalue="Application.Notepadv1_2 (5)" />
+        <item itemvalue="Application.Notepadv1_2 (4)" />
+        <item itemvalue="Application.Notepadv1_2 (3)" />
       </list>
     </recent_temporary>
   </component>
@@ -133,7 +154,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693926867542</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Tue 05:09:2023 - 05:12:15 PM">
+      <option name="closed" value="true" />
+      <created>1693927110525</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1693927110525</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,5 +179,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Tue 05:09:2023 - 05:12:15 PM" />
     <option name="LAST_COMMIT_MESSAGE" value="Tue 05:09:2023 - 05:12:15 PM" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

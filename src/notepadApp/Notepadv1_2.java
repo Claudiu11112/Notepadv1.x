@@ -1,80 +1,21 @@
 package notepadApp;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
-import java.awt.GridLayout;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.StringSelection;
-import java.awt.datatransfer.Transferable;
-import java.awt.datatransfer.UnsupportedFlavorException;
-import java.awt.dnd.DnDConstants;
-import java.awt.dnd.DropTarget;
-import java.awt.dnd.DropTargetDragEvent;
-import java.awt.dnd.DropTargetDropEvent;
-import java.awt.dnd.DropTargetEvent;
-import java.awt.dnd.DropTargetListener;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.InputEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import javax.swing.*;
+import javax.swing.event.*;
+import javax.swing.undo.UndoManager;
+import java.awt.*;
+import java.awt.datatransfer.*;
+import java.awt.dnd.*;
+import java.awt.event.*;
 import java.awt.print.PageFormat;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JScrollPane;
-import javax.swing.JSpinner;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.JTextPane;
-import javax.swing.KeyStroke;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import javax.swing.WindowConstants;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.event.UndoableEditEvent;
-import javax.swing.event.UndoableEditListener;
-import javax.swing.undo.UndoManager;
 
 import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
@@ -91,8 +32,8 @@ class Notepadv1_2 {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
-                | UnsupportedLookAndFeelException e) {
-            LOGGER.log(Level.INFO,"Ups");
+                 | UnsupportedLookAndFeelException e) {
+            LOGGER.log(Level.INFO, "Ups");
         }
         SwingUtilities.invokeLater(MainFrame312::new);
     }
@@ -103,15 +44,16 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
     private final JTextArea ta;
     private final JPopupMenu pm;
     private final JMenuItem cut, copy, paste, delete, selectAll;
+    private final Clipboard clp;
+    private final PrinterJob pJ;
+    private final JLabel statusL;
+    private final UndoManager um = new UndoManager();
     private JMenuItem cut1, new1, open, save, saveAs, pageSetup, print, exit, undo1, copy1, paste1, delete1, find,
             findNext, replace, goTo, selectAll1, timeDate, font1, viewHelp, aboutNotepad;
-    private final Clipboard clp;
     private JCheckBoxMenuItem wordW, statusBar;
     private JFileChooser fc = null;
     private boolean fileM = false;
     private PageFormat pF;
-    private final PrinterJob pJ;
-    private final JLabel statusL;
     private JLabel fontL;
     private JComboBox<?> fontCb, styleCb;
     private JSpinner sizeS;
@@ -120,7 +62,6 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
     private JFrame f;
     private JButton btn1, btn2, cancel1, replace1, replaceAll1;
     private JTextField tf, tf1, tf2;
-    private final UndoManager um = new UndoManager();
 
     MainFrame312() {
         super("Window");
@@ -236,7 +177,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                     File file = (File) list.get(0);
                     ta.read(new FileReader(file), null);
                 } catch (Exception ex) {
-                    LOGGER.log(Level.INFO,"Ups");
+                    LOGGER.log(Level.INFO, "Ups");
                 }
             }
         });
@@ -381,7 +322,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                 String s = (String) data.getTransferData(DataFlavor.stringFlavor);
                 ta.replaceRange(s, ta.getSelectionStart(), ta.getSelectionEnd());
             } catch (UnsupportedFlavorException | IOException e1) {
-                LOGGER.log(Level.INFO,"Ups");
+                LOGGER.log(Level.INFO, "Ups");
             }
         } else if ((src == delete) || (src == delete1)) {
             ta.replaceRange("", ta.getSelectionStart(), ta.getSelectionEnd());
@@ -467,13 +408,13 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                 URL url = System.class.getResource("/NotepadRes/help.html");
                 tp.setPage(url);
             } catch (Exception ee) {
-                LOGGER.log(Level.INFO,"Ups");
+                LOGGER.log(Level.INFO, "Ups");
             }
         } else if (src == print) {
             try {
                 ta.print();
             } catch (PrinterException e1) {
-                LOGGER.log(Level.INFO,"Ups");
+                LOGGER.log(Level.INFO, "Ups");
             }
         } else if (src == goTo) {
             do {
@@ -497,7 +438,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                         }
                     }
                 } catch (Exception e2) {
-                    LOGGER.log(Level.INFO,"Ups");
+                    LOGGER.log(Level.INFO, "Ups");
                 }
             } while (true);
         } else if (src == find) {
@@ -710,7 +651,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             JOptionPane.showMessageDialog(MainFrame312.this, "Error opening file : " + fc.getSelectedFile().getName(),
                     "Error", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            LOGGER.log(Level.INFO,"Ups");
+            LOGGER.log(Level.INFO, "Ups");
         }
     }
 
@@ -728,7 +669,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             fileM = false;
         } catch (IOException e) {
 //            e.printStackTrace();
-            LOGGER.log(Level.INFO,"Ups");
+            LOGGER.log(Level.INFO, "Ups");
         }
     }
 
@@ -759,7 +700,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
         } catch (IOException e) {
 //            e.printStackTrace();
 //            log.error("Ops!", e);
-            LOGGER.log(Level.INFO,"Ups");
+            LOGGER.log(Level.INFO, "Ups");
+//            log.info("ups");
         }
     }
 
@@ -860,7 +802,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             ta.setFont(new Font(fontC, styleC, sizeC));
             fontL.setFont(new Font(fontC, styleC, sizeC));
         } catch (NumberFormatException nfe) {
-            LOGGER.log(Level.INFO,"Ups");
+            LOGGER.log(Level.INFO, "Ups");
         }
     }
 
@@ -895,7 +837,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                     break;
                 }
             } catch (Exception e) {
-                LOGGER.log(Level.INFO,"Ups");
+                LOGGER.log(Level.INFO, "Ups");
             }
         }
         statusL.setText(s);
