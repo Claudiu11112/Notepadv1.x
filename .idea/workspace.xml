@@ -4,14 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1f2cb6d7-a2fc-4513-87f7-4c50020de183" name="Changes" comment="Tue 05:09:2023 - 05:12:15 PM">
+    <list default="true" id="1f2cb6d7-a2fc-4513-87f7-4c50020de183" name="Changes" comment="Sun 05:11:2023 - 01:05:19 PM">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/MainFrame312.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/Notepadv1_2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/Notepadv1_2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/SingletonF1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Notepadv1.x/notepadApp/SingletonF1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/notepadApp/Notepadv1_2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/notepadApp/Notepadv1_2.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +20,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -40,6 +35,9 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2OE0nlhnrIFvz2GIDHBc9EUPuEe" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -177,6 +175,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Sun 05:11:2023 - 01:05:19 PM" />
     <MESSAGE value="Tue 05:09:2023 - 05:12:15 PM" />
     <option name="LAST_COMMIT_MESSAGE" value="Tue 05:09:2023 - 05:12:15 PM" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
