@@ -15,25 +15,21 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
+import java.util.logging.Logger;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+import static jdk.nashorn.internal.runtime.regexp.joni.Config.log;
+
 
 class Notepadv1_2 {
 
     public static void main(String[] args) {
-        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-        // UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        // UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
-        // UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
-        // MetalLookAndFeel.setCurrentTheme(new OceanTheme());
-        // MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException
                  | UnsupportedLookAndFeelException e) {
-            LOGGER.log(Level.INFO, "Ups");
+//            e.printStackTrace();
+            log.print("test");
         }
         SwingUtilities.invokeLater(MainFrame312::new);
     }
@@ -44,16 +40,15 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
     private final JTextArea ta;
     private final JPopupMenu pm;
     private final JMenuItem cut, copy, paste, delete, selectAll;
-    private final Clipboard clp;
-    private final PrinterJob pJ;
-    private final JLabel statusL;
-    private final UndoManager um = new UndoManager();
     private JMenuItem cut1, new1, open, save, saveAs, pageSetup, print, exit, undo1, copy1, paste1, delete1, find,
             findNext, replace, goTo, selectAll1, timeDate, font1, viewHelp, aboutNotepad;
+    private final Clipboard clp;
     private JCheckBoxMenuItem wordW, statusBar;
     private JFileChooser fc = null;
     private boolean fileM = false;
     private PageFormat pF;
+    private final PrinterJob pJ;
+    private final JLabel statusL;
     private JLabel fontL;
     private JComboBox<?> fontCb, styleCb;
     private JSpinner sizeS;
@@ -62,6 +57,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
     private JFrame f;
     private JButton btn1, btn2, cancel1, replace1, replaceAll1;
     private JTextField tf, tf1, tf2;
+    private final UndoManager um = new UndoManager();
 
     MainFrame312() {
         super("Window");
@@ -177,7 +173,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                     File file = (File) list.get(0);
                     ta.read(new FileReader(file), null);
                 } catch (Exception ex) {
-                    LOGGER.log(Level.INFO, "Ups");
+                    log.print("test");
                 }
             }
         });
@@ -322,7 +318,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                 String s = (String) data.getTransferData(DataFlavor.stringFlavor);
                 ta.replaceRange(s, ta.getSelectionStart(), ta.getSelectionEnd());
             } catch (UnsupportedFlavorException | IOException e1) {
-                LOGGER.log(Level.INFO, "Ups");
+                log.print("test");
             }
         } else if ((src == delete) || (src == delete1)) {
             ta.replaceRange("", ta.getSelectionStart(), ta.getSelectionEnd());
@@ -408,13 +404,13 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                 URL url = System.class.getResource("/NotepadRes/help.html");
                 tp.setPage(url);
             } catch (Exception ee) {
-                LOGGER.log(Level.INFO, "Ups");
+                log.print("test");
             }
         } else if (src == print) {
             try {
                 ta.print();
             } catch (PrinterException e1) {
-                LOGGER.log(Level.INFO, "Ups");
+                log.print("test");
             }
         } else if (src == goTo) {
             do {
@@ -438,7 +434,7 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                         }
                     }
                 } catch (Exception e2) {
-                    LOGGER.log(Level.INFO, "Ups");
+                    log.print("test");
                 }
             } while (true);
         } else if (src == find) {
@@ -651,7 +647,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             JOptionPane.showMessageDialog(MainFrame312.this, "Error opening file : " + fc.getSelectedFile().getName(),
                     "Error", JOptionPane.ERROR_MESSAGE);
         } catch (IOException e) {
-            LOGGER.log(Level.INFO, "Ups");
+            log.print("test");
+//            e.printStackTrace();
         }
     }
 
@@ -668,8 +665,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             bw.close();
             fileM = false;
         } catch (IOException e) {
+            log.print("test");
 //            e.printStackTrace();
-            LOGGER.log(Level.INFO, "Ups");
         }
     }
 
@@ -698,10 +695,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             bw.close();
             fileM = false;
         } catch (IOException e) {
+            log.print("test");
 //            e.printStackTrace();
-//            log.error("Ops!", e);
-            LOGGER.log(Level.INFO, "Ups");
-//            log.info("ups");
         }
     }
 
@@ -802,7 +797,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
             ta.setFont(new Font(fontC, styleC, sizeC));
             fontL.setFont(new Font(fontC, styleC, sizeC));
         } catch (NumberFormatException nfe) {
-            LOGGER.log(Level.INFO, "Ups");
+            log.print("test");
+//            nfe.printStackTrace();
         }
     }
 
@@ -837,7 +833,8 @@ class MainFrame312 extends JFrame implements ActionListener, KeyListener, MouseL
                     break;
                 }
             } catch (Exception e) {
-                LOGGER.log(Level.INFO, "Ups");
+//                e.printStackTrace();
+                Logger.getLogger("usp");
             }
         }
         statusL.setText(s);
@@ -854,3 +851,11 @@ class SingletonF1 extends JFrame {
         return ((myInstance == null) ? myInstance = new SingletonF1() : myInstance);
     }
 }
+
+// UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+// UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+// UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+// UIManager.setLookAndFeel("com.sun.java.swing.plaf.motif.MotifLookAndFeel");
+// UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+// MetalLookAndFeel.setCurrentTheme(new OceanTheme());
+// MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());

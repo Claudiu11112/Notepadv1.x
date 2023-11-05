@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Notepadv1.x:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Notepadv1_x_jar</output-path>
+    <root id="archive" name="Notepadv1.x.jar">
+      <element id="module-output" name="Notepadv1.x" />
+    </root>
+  </artifact>
+</component>
